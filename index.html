@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Titans AI Financial Mentor & Savings Assistant</title>
+   <link rel="stylesheet" href="mycss.css"> 
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#ai-coach">AI Coach</a></li>
+                <li><a href="#savings-jar">Digital Savings Jar</a></li>
+                <li><a href="#wellness-score">Wellness Score</a></li>
+                <li><a href="#spending-">Spending Twin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- AI Financial Coach -->
+        <section id="ai-coach">
+          
+            <h2> welcome to titans financial assistant</h2>
+            <p>Get personalized financial coaching through interactive conversations and quizzes.</p>
+            <div class="chatbot">
+                <p>Ask your financial questions below:</p>
+                <input type="text" id="user-question" placeholder="Ask a financial question...">
+                <button id="ask-question">Ask</button>
+                <div id="chatbot-response"></div>
+            </div>
+        </section>
+
+        <!-- Gamified Digital Savings Jar -->
+        <section id="savings-jar">
+            <h2>start your Digital Savings journey</h2>
+            <p>Save automatically through spare change rounding, set goals, and earn rewards!</p>
+            <div class="savings-setup">
+                <label for="goal">Set your savings goal:</label>
+                <input type="text" id="goal" placeholder="e.g., Save $500 for a laptop">
+                <button id="set-goal">Set Goal</button>
+                <div id="savings-progress">
+                    <p>Your current savings: $<span id="savings-amount">0</span></p>
+                    <p>Earned Badges: <span id="badges">None</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Financial Wellness Score & Dashboard -->
+        <section id="wellness-score">
+            <h2>Your Financial Wellness Score</h2>
+            <p>Track your financial health based on spending, savings, and investment habits.</p>
+            <div id="wellness-dashboard">
+                <p>Your Financial Wellness Score: <span id="score">75</span>/100</p>
+                <div id="financial-insights">
+                    <h3>Insights</h3>
+                    <p>Spending on food is high. Try reducing your monthly food budget by $50.</p>
+                    <canvas id="wellness-chart"></canvas> <!-- Chart.js graph will be here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- AI-Based Spending Twin -->
+        <section id="spending-chat">
+            <h2>AI-Based Spending Twin</h2>
+            <p>Visualize your future financial outcomes based on different choices.</p>
+            <div id="spending-simulation">
+                <label for="goal-input">Enter your goal (e.g., Save for a car):</label>
+                <input type="text" id="goal-input" placeholder="e.g., Save for a car">
+                <button id="simulate-spending">Simulate</button>
+                <div id="spending-results">
+                    <p>Saving $200 a month will help you reach your goal in 10 months.</p>
+                    <p>Investing 10% of your salary will increase your future wealth by $5000 over 5 years.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+            <h3>contact us</h3>
+      <ul>
+        <li>nick @ 0707616510</li>
+        <li>nick @ 0707616510</li>
+        <li>tiff @ 0707616510</li>
+        <li>jess @ 0707616510</li>
+        <li>jere @ 0707616510</li>
+        <li>susan @ 0707616510</li>
+        <li>ode @ 0707616510</li>
+      </ul>
+        <p>&copy; 2025 AI Financial Mentor. All Rights Reserved.</p>
+      
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For Financial Wellness Chart -->
+    <script>
+        // Example JavaScript for interactive features
+
+        // AI Financial Coach Simulation
+        document.getElementById('ask-question').addEventListener('click', function() {
+            const userQuestion = document.getElementById('user-question').value;
+            let response = "I'm here to help you with that!";
+            if (userQuestion.toLowerCase().includes('save')) {
+                response = "A good rule is to save at least 20% of your income.";
+            } else if (userQuestion.toLowerCase().includes('budget')) {
+                response = "Try the 50/30/20 rule: 50% needs, 30% wants, and 20% savings.";
+            } else if (userQuestion.toLowerCase().includes('credit card')) {
+                response = "Credit cards can be useful if used responsibly and paid off monthly.";
+            }
+            document.getElementById('chatbot-response').innerText = response;
+        });
+
+        // Digital Savings Jar Simulation (Gamification)
+        let savings = 0;
+        document.getElementById('set-goal').addEventListener('click', function() {
+            const goal = document.getElementById('goal').value;
+            if (goal) {
+                document.getElementById('savings-amount').innerText = savings;
+                document.getElementById('badges').innerText = "Saving Hero!";
+            }
+        });
+
+        // Financial Wellness Score & Dashboard using Chart.js
+        const ctx = document.getElementById('wellness-chart').getContext('2d');
+        const wellnessChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Savings', 'Spending', 'Investments'],
+                datasets: [{
+                    label: 'Financial Wellness Breakdown',
+                    data: [60, 30, 10], // These values are placeholders
+                    backgroundColor: ['#4CAF50', '#FF9800', '#2196F3'],
+                }]
+            }
+        });
+
+        // AI-Based Spending Twin
+        document.getElementById('simulate-spending').addEventListener('click', function() {
+            const goal = document.getElementById('goal-input').value;
+            document.getElementById('spending-results').innerHTML = `
+                <p>Saving $200 a month will help you reach your goal in 10 months.</p>
+                <p>Investing 10% of your salary will increase your future wealth by $5000 over 5 years.</p>
+            `;
+        });
+    </script>
+</body>
+</html>
